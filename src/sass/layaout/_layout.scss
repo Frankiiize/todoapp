@@ -32,6 +32,7 @@ body {
     align-items: center;
     background-color: $VeryDarkBlue;
     border: none;
+    margin-bottom: 30px;
     &__input {
         width: 85%;
         height: 45px;
@@ -49,4 +50,33 @@ body {
         border: 1px solid $VeryDarkGrayishBlue;
         background-color: transparent;
     }
+}
+.todoListContainer{
+    width: 90%;
+    min-height: 250px;
+    margin: 0 auto;
+    background-color: $VeryDarkDesaturatedBlue;
+    border-radius: 5px;
+    &__list {
+        width: 100%;
+        min-height: 250px;
+        &-items {
+            height: 50px;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            border-bottom: 1px solid $VeryDarkGrayishBlue;
+            
+          
+        
+        }
+    }
+}
+.checkBackground {
+    width: 24px;
+    height: 24px;
+    background: $CheckBackground;
+    border-radius: 50%;
+
 }

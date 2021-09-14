@@ -1,8 +1,15 @@
 import logo from './logo.svg';
 import './sass/App.scss';
 import sun from './images/icon-sun.svg';
-import check from './images/icon-check.svg';
-import cross from './images/icon-cross.svg'
+
+import { TodosList } from './TodoList';
+import { TodoItem } from '././TodoItem';
+
+const defaultTodos = [
+  { text: "cortar cebolla", completed: true },
+  { text: "Tomar el curso intro React", completed: false },
+  { text: "comprar libro Dross", completed: false },
+];
 
 function App() {
   return (
@@ -20,14 +27,17 @@ function App() {
           
         </label>
 
-
-      <section>
-        <div>
-          <img src={check}/>
-          <p>Primer TODO</p>
-          <img src={cross} />
-        </div>
-      </section>
+      <TodosList>
+        {defaultTodos.map((todo)=>(
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+          />
+        ))}
+      </TodosList>
+      
+    
 
 
      {/*  <section>
