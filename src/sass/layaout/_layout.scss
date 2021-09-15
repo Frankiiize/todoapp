@@ -23,9 +23,9 @@ body {
         font-size: 2.5rem;
     }
 }
-.searchContainer{
+.newTodoContainer{
     width: 90%;
-    height: 80px;
+    height: 60px;
     margin: 0% auto;
     display: flex;
     justify-content: space-around;
@@ -33,6 +33,7 @@ body {
     background-color: $VeryDarkBlue;
     border: none;
     margin-bottom: 30px;
+    border-radius: 5px;
     &__input {
         width: 85%;
         height: 45px;
@@ -61,22 +62,78 @@ body {
         width: 100%;
         min-height: 250px;
         &-items {
-            height: 50px;
+            position: relative;
+            width: 100%;
+            min-height: 70px;
             list-style: none;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: space-between;
             border-bottom: 1px solid $VeryDarkGrayishBlue;
+            div{               
+                width: 24px;
+                height: 24px;
+                margin: 0 15px;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid $VeryDarkGrayishBlue;
+                border-radius: 50%;
+                background-color: transparent;
+            }
             
-          
-        
+            
         }
+        &-text{
+            color: $LightGrayishBlueHover;
+            font-size: 1.4rem;
+            width: 80%;
+            text-align: left;
+            font-family: $ff-Primary;
+        }
+      
     }
+}
+.closeIcon{
+    width: 20px;
+    height: 20px;
+    background-image: url("../../images/icon-cross.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-right: 20px;
 }
 .checkBackground {
     width: 24px;
     height: 24px;
     background: $CheckBackground;
     border-radius: 50%;
-
+   /*  background-image: url('../../images/icon-check.svg');
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: contain;
+    background-position: center; */
+}
+.filterContainer{
+    width: 90%;
+    height: 50px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $VeryDarkDesaturatedBlue;
+    border-radius: 5px;
+    p {
+        color: $DarkGrayishBlue;
+        margin: 10px;
+        font-size: 1.6rem;
+        font-family: $ff-Primary;
+    }
+}
+footer {
+    color: $DarkGrayishBlue;
+    margin: 50px auto;
+    font-size: 1.6rem;
+    font-family: $ff-Primary;
+    text-align: center;
 }

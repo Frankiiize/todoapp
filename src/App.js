@@ -2,16 +2,22 @@ import logo from './logo.svg';
 import './sass/App.scss';
 import sun from './images/icon-sun.svg';
 
-import { TodosList } from './TodoList';
-import { TodoItem } from '././TodoItem';
+import { TodosList } from './components/TodoList';
+import { TodoItem } from './components/TodoItem';
+import { NewTodo } from './components/todoNew';
 
 const defaultTodos = [
-  { text: "cortar cebolla", completed: true },
-  { text: "Tomar el curso intro React", completed: false },
-  { text: "comprar libro Dross", completed: false },
+  { text: "Complete online JavaScript course", completed: true },
+  { text: "Jog Around the park x3", completed: false },
+  { text: "10 minutes meditation", completed: false },
+  { text: "Read for 1 hour", completed: false },
+  { text: "Pick up groceries", completed: false },
+  { text: "Complete todo App on Frontend Mentor", completed: false },
+
 ];
 
 function App() {
+
   return (
     <>
       <header className="headerContainer">
@@ -19,13 +25,7 @@ function App() {
         <img src={sun} />
       </header>
 
-        <label className="searchContainer">
-          <input value="" type="submit" className="searchContainer__button"/>
-          <input
-          placeholder="Create a new TODO" 
-          className="searchContainer__input" />
-          
-        </label>
+      <NewTodo/>
 
       <TodosList>
         {defaultTodos.map((todo)=>(
@@ -40,7 +40,7 @@ function App() {
     
 
 
-     {/*  <section>
+      <section className="filterContainer">
         <p>All</p>
         <p>Active</p>
         <p>Complete</p>
@@ -48,7 +48,7 @@ function App() {
 
       <footer>
         Drag and drop to reorder list
-      </footer> */}
+      </footer>
     </>
 
    
