@@ -40,7 +40,13 @@ body {
         border-radius: 5px;
         background-color: transparent;
         border: none;
-        
+        color: $LightGrayishBlue;
+    }
+    &__input::placeholder{
+        color:$VeryDarkGrayishBlue1;
+    }
+    &__input:focus {
+        outline: none;
     }
 
     &__button {
@@ -57,10 +63,14 @@ body {
     min-height: 250px;
     margin: 0 auto;
     background-color: $VeryDarkDesaturatedBlue;
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    
     &__list {
         width: 100%;
         min-height: 250px;
+        
+        
         &-items {
             position: relative;
             width: 100%;
@@ -68,51 +78,121 @@ body {
             list-style: none;
             display: inline-flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-start;
             border-bottom: 1px solid $VeryDarkGrayishBlue;
-            div{               
-                width: 24px;
-                height: 24px;
-                margin: 0 15px;
-                display: inline-flex;
-                justify-content: center;
-                align-items: center;
-                border: 1px solid $VeryDarkGrayishBlue;
-                border-radius: 50%;
-                background-color: transparent;
-            }
-            
-            
         }
+       
+        &-icon{               
+            width: 24px;
+            height: 24px;
+            position: relative;
+            //border-width: 5px;
+            border: 1px solid $VeryDarkGrayishBlue;
+            border-radius: 50%;
+            z-index: 0;
+            left: 15px;
+            margin-right: 10px;
+            
+          
+        }
+        
+        &-icon:hover::before {
+            cursor: pointer;
+            content:"";
+            position:absolute;
+            z-index:-1;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            background: 1px $CheckBackground;
+            padding:1px;
+            border-radius:50%;
+            mask:
+              linear-gradient(#fff 0 0) content-box, 
+              linear-gradient(#fff 0 0); ;
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+        }
+        
         &-text{
+            width: 100%;
+            //position: relative;
+            left: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: $LightGrayishBlue;
+            margin-left: 15px;
+            p {
+                width: 100%;
+                
+                font-size: 1.4rem;
+                text-align: left;
+                font-family: $ff-Primary;
+                word-wrap: break-word;
+            }
+        }
+        &-text:hover{
+            cursor: pointer;
             color: $LightGrayishBlueHover;
-            font-size: 1.4rem;
-            width: 80%;
-            text-align: left;
-            font-family: $ff-Primary;
+        }
+        &-iconClose {
+            width: 100%;
+        }
+        &-textCompleted {
+            color:$VeryDarkGrayishBlue;
+            text-decoration: line-through;
+           
         }
       
     }
+  }
+
+.todoCounter {
+  width: 90%;
+  margin: 0 auto;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $VeryDarkDesaturatedBlue;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  span{
+    width: 100%;
+    margin: 0 20px;
+    color: $LightGrayishBlue;
+    font-size: 1.4rem;
+  }
+  span:nth-child(2){
+    text-align: right;
+  }
 }
+
 .closeIcon{
-    width: 20px;
-    height: 20px;
-    background-image: url("../../images/icon-cross.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    margin-right: 20px;
+  width: 20px;
+  height: 20px;
+  background: url("../../images/icon-cross.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-right: 20px;
+  
 }
-.checkBackground {
+.closeIcon:hover{
+    filter: invert(1);
+}
+
+.checkedIcon {
     width: 24px;
     height: 24px;
-    background: $CheckBackground;
+    background:url('../../images/icon-check.svg') center no-repeat , $CheckBackground center no-repeat;
     border-radius: 50%;
-   /*  background-image: url('../../images/icon-check.svg');
-    background-repeat: no-repeat;
-    background-color: transparent;
-    background-size: contain;
-    background-position: center; */
+    
 }
 .filterContainer{
     width: 90%;
@@ -132,7 +212,7 @@ body {
 }
 footer {
     color: $DarkGrayishBlue;
-    margin: 50px auto;
+    //margin: 50px auto;
     font-size: 1.6rem;
     font-family: $ff-Primary;
     text-align: center;
