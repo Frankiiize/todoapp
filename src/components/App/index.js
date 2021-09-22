@@ -14,18 +14,30 @@ import { AppUi } from './appUi';
 
 ]; */
 function useLocalStorage (itemName, inicialValue) {
+  const [error, setError] = React.useState(false);
+  const [loading, setloading] = React.useState(true);
+  const [item, setItem] = React.useState(inicialValue);
+  let storagedTodoParsed = JSON.parse(localStorage.getItem('TODOS_V1'));
+  React.useEffect(() => {
+    setTimeout(() => {
+      try {
+        const localStorageItem = localStorage.getItem(itemName);
+        let parsedItem;
 
-  const localStorageItem = localStorage.getItem(itemName);
-  let parsedItem;
-
-  if(!localStorageItem){
-    localStorage.setItem(itemName, JSON.stringify(inicialValue));
-    parsedItem = inicialValue;
-  } else {
-    parsedItem = JSON.parse(localStorageItem);
-  }
-
-  const [item, setItem] = React.useState(parsedItem);
+        if(!localStorageItem){
+          localStorage.setItem(itemName, JSON.stringify(inicialValue));
+          parsedItem = inicialValue;
+        } else {
+          parsedItem = JSON.parse(localStorageItem);
+        }
+        setItem(parsedItem);
+        setloading(false)
+      } catch(error) {
+        setError(true);
+      }
+    },1000)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
 
   const saveItem = (newItem) => {
     const stringifiedItem = JSON.stringify(newItem);
@@ -33,21 +45,36 @@ function useLocalStorage (itemName, inicialValue) {
     setItem(newItem);
   }
 
-  return [
+ 
+
+  return { 
    item,
    setItem,
    saveItem,
-   parsedItem,
-  ]
+   loading,
+   error,
+   storagedTodoParsed,
+  }
+  
 }
 
 
 function App() {
-  const [todos, setTodos, saveTodos, parsedTodos] = useLocalStorage('TODOS_V1', [] );
+  const {
+    item: todos, 
+    setItem: setTodos, 
+    saveItem: saveTodos, 
+    storagedTodoParsed,
+    loading,
+    error,
+    
+  } = useLocalStorage('TODOS_V1', [] );
   
   const [newTodoItem, setNewTodoItem] = React.useState('');
 
   const unCompletedTodos = todos.filter((todo) => todo.completed === false).length;
+  const totalTodos = todos.length;
+  
 
   const completeTodo = (text) => {
     const newTodos = [...todos];
@@ -63,22 +90,23 @@ function App() {
 
   const deleteTodo = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text );
-    const newTodos = [...parsedTodos];
+    const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos)
   }
   const deleteClear = () => {
-    const newTodos = [...parsedTodos]
+    const newTodos = [...todos]
     const elements  = newTodos.filter((todo) => todo.completed !== true);
     saveTodos(elements)
   }
+ 
 
   const completeTodos = () => {
     const newTodos = [...todos];
     const evalCondition = newTodos.some((todo) => todo.completed === false);
     const elements = newTodos.filter((todo) => todo.completed === true); 
     (!evalCondition || elements.length === 0)
-      ?setTodos(parsedTodos)
+      ?setTodos(storagedTodoParsed)
       :setTodos(elements)
   }
 
@@ -87,16 +115,21 @@ function App() {
     const evalCondition = newTodos.some((todo) => todo.completed === true);
     const elements = newTodos.filter((todo) => todo.completed === false);
     (!evalCondition || elements.length === 0)
-      ? setTodos(parsedTodos)
+      ? setTodos(storagedTodoParsed)
       : setTodos(elements)
   }
   const allTodos = () => {
-    setTodos(parsedTodos)
+    setTodos(storagedTodoParsed)
   }
+
+
 
   return (
    <AppUi 
+    loading={loading}
+    error={error}
     newTodoItem={newTodoItem}
+    totalTodos={totalTodos}
     setNewTodoItem={setNewTodoItem}  
     unCompletedTodos={unCompletedTodos}
     completeTodo={completeTodo}

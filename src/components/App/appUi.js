@@ -10,8 +10,8 @@ import { Footer } from '../Footer';
 function AppUi({
   newTodoItem,
   setNewTodoItem,
-
- 
+  loading, 
+  error,
   unCompletedTodos,
   totalTodos,
   completeTodo,
@@ -32,6 +32,10 @@ function AppUi({
     />
 
     <TodosList>
+      {loading && <p>Estamos cargando</p>}
+      {error && <p>Error</p>}
+      {(!loading && !todos.length ) && <p>crea tu primer todo</p>}
+
       {todos.map((todo)=>(
         <TodoItem
           key={todo.text}
