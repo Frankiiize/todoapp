@@ -1,18 +1,18 @@
 import React from "react";
 
-function FilterTodos ({totalTodos, unCompletedTodos}) {
- 
+function FilterTodos ({unCompletedTodos, onClearComplete, onCompleteTodos, onActiveTodos,onAllTodos}) {
+
     return (
     <>
         <div className="todoCounter"> 
           <span>{unCompletedTodos} Items left </span>
-          <span>Clear Completed</span>
+          <span className="todoCounter__clearComplete" onClick={onClearComplete}>Clear Completed</span>
         </div>
 
         <section className="filterContainer">
-          <p>All</p>
-          <p>Active</p>
-          <p>Complete</p>
+          <p onClick={onAllTodos}>All</p>
+          <p onClick={onActiveTodos}>Active</p>
+          <p onClick={onCompleteTodos}>Complete</p>
         </section>
     </>
     );

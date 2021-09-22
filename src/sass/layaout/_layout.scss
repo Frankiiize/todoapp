@@ -162,6 +162,9 @@ body {
   background-color: $VeryDarkDesaturatedBlue;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  &__clearComplete:hover {
+    cursor: pointer;
+  }
   span{
     width: 100%;
     margin: 0 20px;
@@ -208,6 +211,10 @@ body {
         margin: 10px;
         font-size: 1.6rem;
         font-family: $ff-Primary;
+    }
+    p:hover {
+      cursor: pointer;
+      color: $LightGrayishBlueHover;
     }
 }
 footer {

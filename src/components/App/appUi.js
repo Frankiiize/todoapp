@@ -10,10 +10,16 @@ import { Footer } from '../Footer';
 function AppUi({
   newTodoItem,
   setNewTodoItem,
+
+ 
   unCompletedTodos,
   totalTodos,
   completeTodo,
   deleteTodo,
+  deleteClear,
+  completeTodos,
+  activeTodos,
+  allTodos,
   todos,
 }) {
   return (
@@ -38,8 +44,11 @@ function AppUi({
     </TodosList>
     
     <FilterTodos
-      totalTodos={totalTodos}
       unCompletedTodos={unCompletedTodos}
+      onClearComplete={deleteClear}
+      onCompleteTodos={completeTodos}
+      onActiveTodos={activeTodos}
+      onAllTodos={allTodos}
      />
 
     <Footer /> 
