@@ -69,31 +69,23 @@ body {
     &__list {
         width: 100%;
         min-height: 250px;
-        
-        
+        position: relative;   
         &-items {
-            position: relative;
             width: 100%;
             min-height: 70px;
             list-style: none;
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: flex-end;          
             border-bottom: 1px solid $VeryDarkGrayishBlue;
         }
-       
         &-icon{               
             width: 24px;
             height: 24px;
             position: relative;
-            //border-width: 5px;
             border: 1px solid $VeryDarkGrayishBlue;
             border-radius: 50%;
-            z-index: 0;
-            left: 15px;
-            margin-right: 10px;
-            
-          
+            z-index: 0;       
         }
         
         &-icon:hover::before {
@@ -119,17 +111,15 @@ body {
         }
         
         &-text{
-            width: 100%;
-            //position: relative;
-            left: 15px;
+            width: 90%;
+            height: 100%;
+            padding: 0 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             color: $LightGrayishBlue;
-            margin-left: 15px;
             p {
-                width: 100%;
-                
+                width: 100%;              
                 font-size: 1.4rem;
                 text-align: left;
                 font-family: $ff-Primary;
@@ -139,9 +129,6 @@ body {
         &-text:hover{
             cursor: pointer;
             color: $LightGrayishBlueHover;
-        }
-        &-iconClose {
-            width: 100%;
         }
         &-textCompleted {
             color:$VeryDarkGrayishBlue;
@@ -183,8 +170,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  margin-right: 20px;
-  
+
 }
 .closeIcon:hover{
     filter: invert(1);

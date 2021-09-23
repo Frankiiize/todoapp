@@ -1,20 +1,16 @@
 import React from "react"; 
-//import check from '../../images/icon-check.svg';
-//import cross from '../../images/icon-cross.svg'
+
 
 
 function TodoItem (props) {
     const [hover, setHover] = React.useState(false);
 
- 
-  
-   
     return (
       <li className="todoListContainer__list-items">
-        <span 
+        <i 
         onClick = {props.onCompleteTodo}
         className={`todoListContainer__list-icon ${props.completed ? 'checkedIcon':'noicon'}`}>       
-        </span>
+        </i>
 
         <div 
         className="todoListContainer__list-text"
@@ -24,7 +20,7 @@ function TodoItem (props) {
             className={`${props.completed && 'todoListContainer__list-textCompleted'}`} >
             {props.text}
             </p>
-            <span onClick={props.onDelete} className={` ${hover && 'closeIcon'}`} ></span>          
+            <i onClick={props.onDelete} className={` ${hover && 'closeIcon'}`} ></i>          
         </div>
         
       </li>
