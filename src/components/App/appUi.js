@@ -1,15 +1,19 @@
 import React from "react";
 
+import { FaQuestionCircle } from 'react-icons/fa';
+
 import { Header  } from '../Header';
 import { NewTodo } from '../todoNew';
 import { TodosList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
 import { FilterTodos } from '../FilterTodos';
 import { Footer } from '../Footer';
+import { Modal } from '../Modals';
 
 function AppUi({
-  newTodoItem,
-  setNewTodoItem,
+  newTodoValue,
+  setNewTodoValue,
+  addTodo,
   loading, 
   error,
   unCompletedTodos,
@@ -21,14 +25,19 @@ function AppUi({
   activeTodos,
   allTodos,
   todos,
+  openModal,
+  setOpenModal,
+  modalText,
+  setModalText,
 }) {
   return (
     <>
     <Header />
 
     <NewTodo
-      newTodoItem={newTodoItem}
-      setNewTodoItem={setNewTodoItem}
+      newTodoValue={newTodoValue}
+      setNewTodoValue={setNewTodoValue}
+      addTodo={addTodo}
     />
 
     <TodosList>
@@ -38,13 +47,16 @@ function AppUi({
 
       {todos.map((todo)=>(
         <TodoItem
-          key={todo.text}
+          key={todo.id}
           text={todo.text}
           completed={todo.completed}
-          onCompleteTodo={() => completeTodo(todo.text)}
-          onDelete= {() => deleteTodo(todo.text) }
+          onCompleteTodo={() => completeTodo(todo.id)}
+          onDelete= {() => deleteTodo(todo.id) }
+          setOpenModal={setOpenModal}
+          setModalText={setModalText}
         />
       ))}
+      
     </TodosList>
     
     <FilterTodos
@@ -56,6 +68,37 @@ function AppUi({
      />
 
     <Footer /> 
+    
+  
+
+    {!!openModal && (
+    
+      <Modal 
+      deleteTodo={deleteTodo}
+      setOpenModal={setOpenModal}
+      modalText={modalText}
+      >
+          <div className="modalContainer__card">
+            <div className="modalContainer__text">
+              <div className="modalContainer__text-icon">
+                <FaQuestionCircle />
+              </div>
+              <p>Seguro que quieres eliminar</p>
+              <p>{modalText}</p>
+            </div>
+            <div className="modalContainer__buttons">
+              <button 
+                onClick= {() => deleteTodo(modalText) }
+                className="modalContainer__buttons-confirm">Confirmar</button>
+              <button           
+                onClick={() => setOpenModal(false)}
+                className="modalContainer__buttons-out">Salir</button>
+            </div>
+          </div>
+      </Modal>
+
+    )}
+  
   </>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../sass/App.scss';
 import { AppUi } from './appUi';
+import { useLocalStorage } from '../Context/useLocalStorage'
  
 /* const defaultTodos = [
   { text: "Complete online JavaScript course", completed: true },
@@ -13,50 +14,6 @@ import { AppUi } from './appUi';
   { text: "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500", completed: true },
 
 ]; */
-function useLocalStorage (itemName, inicialValue) {
-  const [error, setError] = React.useState(false);
-  const [loading, setloading] = React.useState(true);
-  const [item, setItem] = React.useState(inicialValue);
-  let storagedTodoParsed = JSON.parse(localStorage.getItem('TODOS_V1'));
-  React.useEffect(() => {
-    setTimeout(() => {
-      try {
-        const localStorageItem = localStorage.getItem(itemName);
-        let parsedItem;
-
-        if(!localStorageItem){
-          localStorage.setItem(itemName, JSON.stringify(inicialValue));
-          parsedItem = inicialValue;
-        } else {
-          parsedItem = JSON.parse(localStorageItem);
-        }
-        setItem(parsedItem);
-        setloading(false)
-      } catch(error) {
-        setError(true);
-      }
-    },1000)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[]);
-
-  const saveItem = (newItem) => {
-    const stringifiedItem = JSON.stringify(newItem);
-    localStorage.setItem(itemName, stringifiedItem);
-    setItem(newItem);
-  }
-
- 
-
-  return { 
-   item,
-   setItem,
-   saveItem,
-   loading,
-   error,
-   storagedTodoParsed,
-  }
-  
-}
 
 
 function App() {
@@ -70,15 +27,29 @@ function App() {
     
   } = useLocalStorage('TODOS_V1', [] );
   
-  const [newTodoItem, setNewTodoItem] = React.useState('');
+  const [newTodoValue, setNewTodoValue] = React.useState('');
+  
+  const [openModal, setOpenModal] = React.useState(false);
+  const [modalText, setModalText] = React.useState('')
+  
 
   const unCompletedTodos = todos.filter((todo) => todo.completed === false).length;
   const totalTodos = todos.length;
+
+  const addTodo = (newTodoValue) => {
+    const newTodos = [...todos];
+    newTodos.unshift({
+      text: newTodoValue,
+      completed: false,
+      id: totalTodos + 1,
+    });
+    saveTodos(newTodos);
+  }
   
 
-  const completeTodo = (text) => {
+  const completeTodo = (id) => {
     const newTodos = [...todos];
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
+    const todoIndex = todos.findIndex((todo) => todo.id === id);
       if(!newTodos[todoIndex].completed){
       newTodos[todoIndex].completed = true
       } else {
@@ -88,19 +59,18 @@ function App() {
     saveTodos(newTodos);
   };
 
-  const deleteTodo = (text) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text );
+  const deleteTodo = (id) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === id );
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos)
+    setOpenModal(false)
   }
   const deleteClear = () => {
     const newTodos = [...todos]
     const elements  = newTodos.filter((todo) => todo.completed !== true);
     saveTodos(elements)
   }
- 
-
   const completeTodos = () => {
     const newTodos = [...todos];
     const evalCondition = newTodos.some((todo) => todo.completed === false);
@@ -109,7 +79,6 @@ function App() {
       ?setTodos(storagedTodoParsed)
       :setTodos(elements)
   }
-
   const activeTodos = () => {
     const newTodos = [...todos];
     const evalCondition = newTodos.some((todo) => todo.completed === true);
@@ -121,16 +90,14 @@ function App() {
   const allTodos = () => {
     setTodos(storagedTodoParsed)
   }
-
-
-
   return (
    <AppUi 
     loading={loading}
     error={error}
-    newTodoItem={newTodoItem}
+    newTodoValue={newTodoValue}
     totalTodos={totalTodos}
-    setNewTodoItem={setNewTodoItem}  
+    setNewTodoValue={setNewTodoValue}  
+    addTodo={addTodo}
     unCompletedTodos={unCompletedTodos}
     completeTodo={completeTodo}
     deleteTodo={deleteTodo}
@@ -139,6 +106,10 @@ function App() {
     activeTodos={activeTodos}
     allTodos={allTodos}
     todos={todos}
+    openModal={openModal}
+    setOpenModal={setOpenModal}
+    modalText={modalText}
+    setModalText={setModalText}
    />
 
   );
