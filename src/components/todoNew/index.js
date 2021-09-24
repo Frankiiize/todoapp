@@ -1,8 +1,7 @@
 import React from "react";
 
 
-function NewTodo ({newTodoValue, setNewTodoValue, addTodo, openModal,
-  setOpenModal,}) {
+function NewTodo ({newTodoValue, setNewTodoValue, addTodo}) {
   const [hover, setHover] = React.useState(false);
   const [click, setClick] = React.useState(false);
   
@@ -13,7 +12,7 @@ function NewTodo ({newTodoValue, setNewTodoValue, addTodo, openModal,
   
   const onSubmit = (event) => {
     event.preventDefault()
-    !!newTodoValue ? addTodo(newTodoValue) : setOpenModal(true)
+    !!newTodoValue ? addTodo(newTodoValue) : console.log('no info')
     setNewTodoValue('')
   }
  
