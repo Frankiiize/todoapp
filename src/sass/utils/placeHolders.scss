@@ -1,0 +1,41 @@
+.closeIcon{
+  width: 20px;
+  height: 20px;
+  background: url("../../images/icon-cross.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+}
+.closeIcon:hover{
+    filter: invert(1);
+}
+.check {
+  width: 24px;
+  height: 24px;
+  background: $CheckBackground center no-repeat ;
+  border-radius: 50%;
+  mask: none;
+}
+.buttonHover{
+  cursor: pointer;
+  background: 1px $CheckBackground;
+  padding:1px;
+  border-radius:50%;
+  mask:
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0); 
+  -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+.checkedIcon {
+    width: 24px;
+    height: 24px;
+    background:url('../../images/icon-check.svg') center no-repeat , $CheckBackground center no-repeat;
+    border-radius: 50%;
+    
+}

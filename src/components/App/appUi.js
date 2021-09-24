@@ -10,6 +10,10 @@ import { FilterTodos } from '../FilterTodos';
 import { Footer } from '../Footer';
 import { Modal } from '../Modals';
 
+//render States 
+import { ErrorState, LoadingState, EmpyState} from '../SkeletonLoading'
+
+
 function AppUi({
   newTodoValue,
   setNewTodoValue,
@@ -38,12 +42,15 @@ function AppUi({
       newTodoValue={newTodoValue}
       setNewTodoValue={setNewTodoValue}
       addTodo={addTodo}
+      openModal={openModal}
+      setOpenModal={setOpenModal}
     />
 
     <TodosList>
-      {loading && <p>Estamos cargando</p>}
-      {error && <p>Error</p>}
-      {(!loading && !todos.length ) && <p>crea tu primer todo</p>}
+      {error && <ErrorState error={error}/>}
+     
+      {loading && new Array(5).fill().map((item, index) => <LoadingState key={index}/>)}
+      {(!loading && !todos.length ) && <EmpyState />}
 
       {todos.map((todo)=>(
         <TodoItem

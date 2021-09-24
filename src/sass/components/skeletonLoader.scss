@@ -1,0 +1,57 @@
+.skeletonContainer {
+  width: 100%;
+  min-height: 50px;
+  margin: 0 auto;
+  
+  &__background{
+      border: 1px solid $LightGrayishBlue;
+      background: $LightGrayishBlue;
+      border-radius: 5px;
+      width: 100%;
+      display: flex;
+      padding: 1rem;
+      animation-name: preloadAnimation;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-duration: 3s;
+      background: linear-gradient(to right, $LightGrayishBlue  8%, $LightGrayishBlueHover 18%, $LightGrayishBlue 33%);
+      min-height: 50px;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 10px;
+      i {
+        @extend .todoListContainer__list-icon;
+        border: 1px solid $DarkGrayishBlue;
+
+      }
+     p{
+      width: 100%;
+      height: 100%;
+     }
+    }
+    &__empyState, &__errorState {
+      width: 100%;
+      min-height: 50px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    p {    
+      display: flex;
+      padding: 5px;
+      font-size: 1.5rem;
+      color: $DarkGrayishBlue;
+   }
+}
+
+@keyframes preloadAnimation{
+  0%{
+      background-position: -769px 0;
+  }
+  100%{
+      background-position: 769px 0;
+  }
+}

@@ -48,6 +48,7 @@ body {
     &__input[type=text]:focus {
        outline: none;
     }
+   
 
     &__button {
         width: 24px;
@@ -57,6 +58,7 @@ body {
         border: 1px solid $VeryDarkGrayishBlue;
         background-color: transparent;
     }
+   
     
 }
 .todoListContainer{
@@ -138,8 +140,7 @@ body {
         }
       
     }
-  }
-
+}
 .todoCounter {
   width: 90%;
   margin: 0 auto;
@@ -162,33 +163,6 @@ body {
   span:nth-child(2){
     text-align: right;
   }
-}
-
-.closeIcon{
-  width: 20px;
-  height: 20px;
-  background: url("../../images/icon-cross.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-
-}
-.closeIcon:hover{
-    filter: invert(1);
-}
-.check {
-  width: 24px;
-  height: 24px;
-  background: $CheckBackground center no-repeat;
-  border-radius: 50%;
-}
-
-.checkedIcon {
-    width: 24px;
-    height: 24px;
-    background:url('../../images/icon-check.svg') center no-repeat , $CheckBackground center no-repeat;
-    border-radius: 50%;
-    
 }
 .filterContainer{
     width: 90%;
@@ -217,85 +191,6 @@ footer {
     font-family: $ff-Primary;
     text-align: center;
 }
-.modalContainer{
-  background-color: rgba($DarkGrayishBlue, $alpha: .5);
-  position: fixed;
-  top: -10px;
-  bottom: -10px;
-  right: -10px;
-  left: -10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: $LightGrayishBlue;
-  &__card{
-    width: 90%;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    min-height: 200px;
-    border-radius: 5px;
-    background-color: $LightGrayishBlue;
-  }
-  &__text{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    font-family: 'Josefin Sans', sans-serif;
-    color: $VeryDarkBlue;
-    margin-bottom: 20px;
-    text-align: justify;
-    p{
-      margin-bottom: 10px;
-    }
-    p:nth-child(3){
-      color: $VeryDarkGrayishBlue1;
-    }
-    
-    &-icon {
-      width: 100%;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      
-      svg {
-        fill: $VeryDarkBlue;
-        height: 7rem;
-        width: 7rem;
-      }
-    }
-  }
-  button {
-    font-size: 1.8rem;
-    font-family: 'Josefin Sans', sans-serif;
-    width: 100px;
-    height: 40px;
-    border-radius: 5px;
-    color: $LightGrayishBlue;
-    border: none;
-  }
-  button:hover{
-    cursor: pointer;
-    color: $LightGrayishBlueHover;
-    box-shadow: 0px 0px 4px 6px $LightGrayishBlueHover ;
-  }
-  &__buttons {
-    &-confirm {    
-      margin-right: 10px;
-      background: $BrightBlue;
-    }
-    &-out{
-      margin-left: 10px;
-      background-color: $VeryDarkBlue;
-    }
-  }
- 
-  
-}
+
+
+

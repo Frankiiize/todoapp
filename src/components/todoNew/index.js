@@ -1,10 +1,19 @@
 import React from "react";
 
-function NewTodo ({newTodoValue, setNewTodoValue, addTodo}) {
+
+function NewTodo ({newTodoValue, setNewTodoValue, addTodo, openModal,
+  setOpenModal,}) {
   const [hover, setHover] = React.useState(false);
+  const [click, setClick] = React.useState(false);
+  
+
+  const noInfo = (msg) => {
+    console.log(msg)
+  }
+  
   const onSubmit = (event) => {
     event.preventDefault()
-    !!newTodoValue && addTodo(newTodoValue)
+    !!newTodoValue ? addTodo(newTodoValue) : setOpenModal(true)
     setNewTodoValue('')
   }
  
@@ -12,20 +21,16 @@ function NewTodo ({newTodoValue, setNewTodoValue, addTodo}) {
   const newTodoInputValue = (event) => {
     setNewTodoValue(event.target.value)
   }
-
-  const clickEfect = () => {
-    setHover(true);
-    setTimeout(() => {
-      setHover(false)
-    },100);
-  }
-
     return (
       <form onSubmit={onSubmit}>
         <label  className="newTodoContainer">
           <input
-          className={`newTodoContainer__button ${hover && 'check'}`}
-          onClick={clickEfect} 
+          className={`newTodoContainer__button ${(click) && 'check'} ${(hover && !click) && 'buttonHover'} `}
+          onClick={() => {
+            setClick(true);
+            setTimeout(()=> setClick(false),500)}
+            } 
+          onMouseEnter={() => {setHover(true)}}
           onMouseLeave={() => {setHover(false)}}
           type="submit" 
           value="" 
