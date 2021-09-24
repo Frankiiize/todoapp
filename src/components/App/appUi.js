@@ -57,7 +57,7 @@ function AppUi({
           key={todo.id}
           text={todo.text}
           completed={todo.completed}
-          onCompleteTodo={() => completeTodo(todo.id)}
+          onCompleteTodo={() => completeTodo(todo.text)}
           onDelete= {() => deleteTodo(todo.id) }
           setOpenModal={setOpenModal}
           setModalText={setModalText}
