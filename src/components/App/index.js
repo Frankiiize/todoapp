@@ -47,9 +47,9 @@ function App() {
   }
   
 
-  const completeTodo = (id) => {
+  const completeTodo = (text) => {
     const newTodos = [...todos];
-    const todoIndex = todos.findIndex((todo) => todo.id === id);
+    const todoIndex = todos.findIndex((todo) => todo.text === text);
       if(!newTodos[todoIndex].completed){
       newTodos[todoIndex].completed = true
       } else {
@@ -59,8 +59,8 @@ function App() {
     saveTodos(newTodos);
   };
 
-  const deleteTodo = (id) => {
-    const todoIndex = todos.findIndex((todo) => todo.id === id );
+  const deleteTodo = (text) => {
+    const todoIndex = todos.findIndex((todo) => todo.text === text );
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos)

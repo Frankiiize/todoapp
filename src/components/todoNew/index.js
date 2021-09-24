@@ -6,9 +6,6 @@ function NewTodo ({newTodoValue, setNewTodoValue, addTodo}) {
   const [click, setClick] = React.useState(false);
   
 
-  const noInfo = (msg) => {
-    console.log(msg)
-  }
   
   const onSubmit = (event) => {
     event.preventDefault()
