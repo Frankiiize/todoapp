@@ -33,6 +33,8 @@ function AppUi({
   setOpenModal,
   modalText,
   setModalText,
+  todoId,
+  setTodoId,
 }) {
   return (
     <>
@@ -49,7 +51,7 @@ function AppUi({
     <TodosList>
       {error && <ErrorState error={error}/>}
      
-      {loading && new Array(5).fill().map((item, index) => <LoadingState key={index}/>)}
+      {loading && new Array(4).fill().map((item, index) => <LoadingState key={index}/>)}
       {(!loading && !todos.length ) && <EmpyState />}
 
       {todos.map((todo)=>(
@@ -58,9 +60,11 @@ function AppUi({
           text={todo.text}
           completed={todo.completed}
           onCompleteTodo={() => completeTodo(todo.text)}
-          onDelete= {() => deleteTodo(todo.id) }
+          onDelete= {() => deleteTodo(todo.text) }
           setOpenModal={setOpenModal}
           setModalText={setModalText}
+          setTodoId={setTodoId}
+          id={todo.id}
         />
       ))}
       
@@ -84,6 +88,7 @@ function AppUi({
       deleteTodo={deleteTodo}
       setOpenModal={setOpenModal}
       modalText={modalText}
+      todoId={todoId}
       >
           <div className="modalContainer__card">
             <div className="modalContainer__text">
@@ -92,10 +97,11 @@ function AppUi({
               </div>
               <p>Seguro que quieres eliminar</p>
               <p>{modalText}</p>
+              <p>TODO ID={todoId}</p>
             </div>
             <div className="modalContainer__buttons">
               <button 
-                onClick= {() => deleteTodo(modalText) }
+                onClick= {() => deleteTodo(todoId) }
                 className="modalContainer__buttons-confirm">Confirmar</button>
               <button           
                 onClick={() => setOpenModal(false)}

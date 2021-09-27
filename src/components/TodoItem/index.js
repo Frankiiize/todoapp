@@ -6,7 +6,8 @@ function TodoItem (props) {
     const toOpenModal = () => {
       props.setOpenModal(true);
       props.setModalText(props.text)
-      console.log(props.text)
+      props.setTodoId(props.id)
+      console.log(props.id)
     }
 
     return (

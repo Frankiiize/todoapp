@@ -1,7 +1,8 @@
 import React from 'react';
 import '../../sass/App.scss';
 import { AppUi } from './appUi';
-import { useLocalStorage } from '../Context/useLocalStorage'
+import { useLocalStorage } from '../Context/useLocalStorage';
+import { generateUUID } from '../Context/generateID';
  
 /* const defaultTodos = [
   { text: "Complete online JavaScript course", completed: true },
@@ -30,18 +31,19 @@ function App() {
   const [newTodoValue, setNewTodoValue] = React.useState('');
   
   const [openModal, setOpenModal] = React.useState(false);
-  const [modalText, setModalText] = React.useState('')
+  const [modalText, setModalText] = React.useState('');
+  const [todoId, setTodoId] = React.useState();
   
-
   const unCompletedTodos = todos.filter((todo) => todo.completed === false).length;
   const totalTodos = todos.length;
+
 
   const addTodo = (newTodoValue) => {
     const newTodos = [...todos];
     newTodos.unshift({
       text: newTodoValue,
       completed: false,
-      id: totalTodos + 1,
+      id: generateUUID(),
     });
     saveTodos(newTodos);
   }
@@ -54,13 +56,13 @@ function App() {
       newTodos[todoIndex].completed = true
       } else {
         newTodos[todoIndex].completed = false;
-
       }
     saveTodos(newTodos);
   };
 
-  const deleteTodo = (text) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text );
+  const deleteTodo = (id) => {
+    
+    const todoIndex = todos.findIndex((todo) => todo.id === id );
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos)
@@ -110,6 +112,8 @@ function App() {
     setOpenModal={setOpenModal}
     modalText={modalText}
     setModalText={setModalText}
+    todoId={todoId}
+    setTodoId={setTodoId}
    />
 
   );
