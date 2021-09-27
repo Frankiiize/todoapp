@@ -35,8 +35,7 @@ function AppUi({
   setModalText,
   todoId,
   setTodoId,
-  darkTheme,
-  setDarkTheme,
+  
 }) {
   return (
     <>
@@ -63,7 +62,7 @@ function AppUi({
           key={todo.id}
           text={todo.text}
           completed={todo.completed}
-          onCompleteTodo={() => completeTodo(todo.text)}
+          onCompleteTodo={() => completeTodo(todo.id)}
           onDelete= {() => deleteTodo(todo.text) }
           setOpenModal={setOpenModal}
           setModalText={setModalText}

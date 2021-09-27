@@ -11,7 +11,7 @@ function Header () {
     if(body.className === 'theme'){
       body.className = 'theme theme--dark';
       themeIcon.src= moon;
-     
+      
     } else {
       body.className = 'theme'
       themeIcon.src= sun;

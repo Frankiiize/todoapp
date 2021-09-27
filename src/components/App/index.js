@@ -33,7 +33,7 @@ function App() {
   const [openModal, setOpenModal] = React.useState(false);
   const [modalText, setModalText] = React.useState('');
   const [todoId, setTodoId] = React.useState();
-  const [darkTheme, setDarkTheme] = React.useState(false);
+  
   
   const unCompletedTodos = todos.filter((todo) => todo.completed === false).length;
   const totalTodos = todos.length;
@@ -50,9 +50,9 @@ function App() {
   }
   
 
-  const completeTodo = (text) => {
+  const completeTodo = (id) => {
     const newTodos = [...todos];
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
+    const todoIndex = todos.findIndex((todo) => todo.id === id);
       if(!newTodos[todoIndex].completed){
       newTodos[todoIndex].completed = true
       } else {
@@ -115,8 +115,6 @@ function App() {
     setModalText={setModalText}
     todoId={todoId}
     setTodoId={setTodoId}
-    darkTheme={darkTheme}
-    setDarkTheme={setDarkTheme}
    />
 
   );
