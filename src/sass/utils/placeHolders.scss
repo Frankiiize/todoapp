@@ -5,10 +5,15 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  &:hover{
 
+    cursor: pointer;
+  }
 }
 .closeIcon:hover{
-    filter: invert(1);
+  filter: invert(1);
+  
+
 }
 .check {
   width: 24px;
@@ -16,6 +21,7 @@
   background: $CheckBackground center no-repeat ;
   border-radius: 50%;
   mask: none;
+  
 }
 .buttonHover{
   cursor: pointer;
@@ -37,5 +43,6 @@
     height: 24px;
     background:url('../../images/icon-check.svg') center no-repeat , $CheckBackground center no-repeat;
     border-radius: 50%;
+  
     
 }

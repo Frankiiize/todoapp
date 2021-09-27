@@ -11,6 +11,7 @@ $CheckBackground: linear-gradient(hsl(192, 100%, 67%) , hsl(280, 87%, 65%));
 
 $VeryLightGray: hsl(0, 0%, 98%);
 $VeryLightGrayishBlue: hsl(236, 33%, 92%);
+
 $LightGrayishBlue: hsl(233, 11%, 84%);
 $DarkGrayishBlue: hsl(236, 9%, 61%);
 $VeryDarkGrayishBlue: hsl(235, 19%, 35%);
@@ -19,8 +20,10 @@ $VeryDarkGrayishBlue: hsl(235, 19%, 35%);
 
 $VeryDarkBlue: hsl(235, 21%, 11%);
 $VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+
 $LightGrayishBlue: hsl(234, 39%, 85%);
 $LightGrayishBlueHover: hsl(236, 33%, 92%);
+
 $DarkGrayishBlue: hsl(234, 11%, 52%);
 $VeryDarkGrayishBlue1: hsl(233, 14%, 35%);
 $VeryDarkGrayishBlue: hsl(237, 14%, 26%);
@@ -31,3 +34,26 @@ $VeryDarkGrayishBlue: hsl(237, 14%, 26%);
 /* --------------------FONTS-------------------- */
 $ff-Primary: 'Josefin Sans', sans-serif;
 /* --------------------FONTS-------------------- */
+/* --------------------backGround-------------------- */
+$ligth-Bg-image: '../../images/bg-mobile-light.jpg';
+$dark-Bg-image: '../../images/bg-mobile-dark.jpg';
+/* --------------------//backGround-------------------- */
+.theme {
+  //ligth-THEME
+  --color-bg_primary: #{$VeryLightGray};
+  --color-bg_segundary: #{$VeryLightGrayishBlue};
+  --color-Txt_primary: #{$VeryDarkGrayishBlue};
+  --color-TxtHover_primary: #{$VeryDarkBlue};
+  --color-Border: #{$LightGrayishBlue};
+  --bg-mobile-img: #{url($ligth-Bg-image)};
+  &--dark {
+    //dark--THEME
+    --color-bg_primary: #{$VeryDarkBlue};
+    --color-bg_segundary: #{$VeryDarkDesaturatedBlue};
+    --color-Txt_primary: #{$LightGrayishBlue};
+    --color-TxtHover_primary: #{$LightGrayishBlueHover};
+    --color-Border: #{$VeryDarkGrayishBlue};
+    --bg-mobile-img: #{url($dark-Bg-image)};
+    
+  }
+}

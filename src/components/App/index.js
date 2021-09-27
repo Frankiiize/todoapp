@@ -33,6 +33,7 @@ function App() {
   const [openModal, setOpenModal] = React.useState(false);
   const [modalText, setModalText] = React.useState('');
   const [todoId, setTodoId] = React.useState();
+  const [darkTheme, setDarkTheme] = React.useState(false);
   
   const unCompletedTodos = todos.filter((todo) => todo.completed === false).length;
   const totalTodos = todos.length;
@@ -114,6 +115,8 @@ function App() {
     setModalText={setModalText}
     todoId={todoId}
     setTodoId={setTodoId}
+    darkTheme={darkTheme}
+    setDarkTheme={setDarkTheme}
    />
 
   );

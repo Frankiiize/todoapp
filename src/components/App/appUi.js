@@ -35,10 +35,14 @@ function AppUi({
   setModalText,
   todoId,
   setTodoId,
+  darkTheme,
+  setDarkTheme,
 }) {
   return (
     <>
-    <Header />
+    <Header
+  
+     />
 
     <NewTodo
       newTodoValue={newTodoValue}
@@ -65,6 +69,7 @@ function AppUi({
           setModalText={setModalText}
           setTodoId={setTodoId}
           id={todo.id}
+       
         />
       ))}
       

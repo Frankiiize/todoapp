@@ -1,12 +1,12 @@
 body {
     width: 100%;
     height: 100vh;
-    background-image: url('../../images/bg-mobile-dark.jpg');
+    background-image: var(--bg-mobile-img);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: top;
-    background-size: 100%;
-    background-color: $VeryDarkBlue;
+  //  background-size: 100%;
+    background-color: var(--color-bg_primary);
 }
 .headerContainer {
     width: 90%;
@@ -22,6 +22,9 @@ body {
         letter-spacing: 1.4rem;
         font-size: 2.5rem;
     }
+    img:hover{
+      cursor: pointer;
+    }
 }
 .newTodoContainer{
     width: 90%;
@@ -30,7 +33,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: $VeryDarkBlue;
+    background-color: var(--color-bg_primary);
     border: none;
     margin-bottom: 30px;
     border-radius: 5px;
@@ -40,10 +43,11 @@ body {
         border-radius: 5px;
         background-color: transparent;
         border: none;
-        color: $LightGrayishBlue;
+        color: var(--color-Txt_primary);
     }
     &__input::placeholder{
-        color:$VeryDarkGrayishBlue1;
+        font-weight: 400;
+        color:var(--color-Txt_primary);
     }
     &__input[type=text]:focus {
        outline: none;
@@ -55,7 +59,7 @@ body {
         height: 24px;
         margin-left: 10px;
         border-radius: 50%;
-        border: 1px solid $VeryDarkGrayishBlue;
+        border: 1px solid var(--color-Border);
         background-color: transparent;
     }
    
@@ -65,7 +69,7 @@ body {
     width: 90%;
     min-height: 250px;
     margin: 0 auto;
-    background-color: $VeryDarkDesaturatedBlue;
+    background-color: var(--color-bg_segundary);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     
@@ -80,13 +84,13 @@ body {
             display: flex;
             align-items: center;
             justify-content: flex-end;          
-            border-bottom: 1px solid $VeryDarkGrayishBlue;
+            border-bottom: 1px solid var(--color-Border);
         }
         &-icon{               
             width: 24px;
             height: 24px;
             position: relative;
-            border: 1px solid $VeryDarkGrayishBlue;
+            border: 1px solid var(--color-Border);
             border-radius: 50%;
             z-index: 0;       
         }
@@ -120,23 +124,22 @@ body {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: $LightGrayishBlue;
             p {
+                color: var(--color-Txt_primary);
+                font-weight: 400;
                 width: 100%;              
                 font-size: 1.4rem;
                 text-align: left;
                 font-family: $ff-Primary;
                 word-wrap: break-word;
             }
-        }
-        &-text:hover{
-            cursor: pointer;
-            color: $LightGrayishBlueHover;
+            p:hover{
+                cursor: pointer;
+                color: var(--color-TxtHover_primary);
+            }
         }
         &-textCompleted {
-            color:$VeryDarkGrayishBlue;
-            text-decoration: line-through;
-           
+            text-decoration: line-through;        
         }
       
     }
@@ -148,16 +151,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: $VeryDarkDesaturatedBlue;
+  background-color: var(--color-bg_segundary);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   &__clearComplete:hover {
     cursor: pointer;
+    color: var(--color-TxtHover_primary);
   }
   span{
     width: 100%;
     margin: 0 20px;
-    color: $LightGrayishBlue;
+    color: var(--color-Txt_primary);
     font-size: 1.4rem;
   }
   span:nth-child(2){
@@ -171,25 +175,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $VeryDarkDesaturatedBlue;
+    background-color: var(--color-bg_segundary);
     border-radius: 5px;
     p {
-        color: $DarkGrayishBlue;
+        color: var(--color-Txt_primary);
         margin: 10px;
         font-size: 1.6rem;
         font-family: $ff-Primary;
     }
     p:hover {
       cursor: pointer;
-      color: $LightGrayishBlueHover;
+      color: var(--color-TxtHover_primary);
     }
 }
 footer {
-    color: $DarkGrayishBlue;
+    color: var(--color-Txt_primary);
     //margin: 50px auto;
     font-size: 1.6rem;
     font-family: $ff-Primary;
     text-align: center;
+    
 }
 
 

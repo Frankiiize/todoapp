@@ -1,5 +1,3 @@
-import React from "react";
-
 function generateUUID() {
   var d = new Date().getTime();
   var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {

@@ -4,8 +4,9 @@
   margin: 0 auto;
   
   &__background{
-      border: 1px solid $LightGrayishBlue;
-      background: $LightGrayishBlue;
+      border: none;
+      border-bottom: 1px solid var(--color-bg_primary);
+      background-color: var(--color-bg_primary);
       border-radius: 5px;
       width: 100%;
       display: flex;
@@ -15,11 +16,11 @@
       animation-iteration-count: infinite;
       animation-timing-function: linear;
       animation-duration: 3s;
-      background: linear-gradient(to right, $LightGrayishBlue  8%, $LightGrayishBlueHover 18%, $LightGrayishBlue 33%);
+      background: linear-gradient(to right, var(--color-bg_primary) 8%,  18%, var(--color-bg_segundary) 33%);
       min-height: 50px;
       align-items: center;
       justify-content: flex-start;
-      margin-bottom: 10px;
+ 
       i {
         @extend .todoListContainer__list-icon;
         border: 1px solid $DarkGrayishBlue;

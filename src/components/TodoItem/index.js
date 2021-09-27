@@ -1,5 +1,7 @@
 import React from "react"; 
 
+
+
 function TodoItem (props) {
     const [hover, setHover] = React.useState(false);
 
@@ -9,6 +11,7 @@ function TodoItem (props) {
       props.setTodoId(props.id)
       console.log(props.id)
     }
+  
 
     return (
       <>
@@ -26,7 +29,7 @@ function TodoItem (props) {
               className={`${props.completed && 'todoListContainer__list-textCompleted'}`} >
               {props.text}
               </p>
-              <i onClick={toOpenModal} className={` ${hover && 'closeIcon'}`} ></i>          
+              <i onClick={toOpenModal}  className={` ${hover && 'closeIcon'}`} ></i>          
           </div>
           
         </li>
