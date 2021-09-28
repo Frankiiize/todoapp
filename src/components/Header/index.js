@@ -10,11 +10,11 @@ function Header () {
     let themeIcon = document.querySelector('.themeIcon');
     if(body.className === 'theme'){
       body.className = 'theme theme--dark';
-      themeIcon.src= moon;
+      themeIcon.src= sun;
       
     } else {
+      themeIcon.src= moon;
       body.className = 'theme'
-      themeIcon.src= sun;
     }
   }
 
@@ -22,7 +22,7 @@ function Header () {
     <>
         <header className="headerContainer">
             <h1>TODO</h1>
-            <img className="themeIcon" onClick={themeChange} src={sun} alt="togle theme" />
+            <img className="themeIcon" onClick={themeChange} src={moon} alt="togle theme" />
         </header>
     </>
     );

@@ -3,6 +3,7 @@ import '../../sass/App.scss';
 import { AppUi } from './appUi';
 import { useLocalStorage } from '../Context/useLocalStorage';
 import { generateUUID } from '../Context/generateID';
+
  
 /* const defaultTodos = [
   { text: "Complete online JavaScript course", completed: true },
@@ -33,6 +34,7 @@ function App() {
   const [openModal, setOpenModal] = React.useState(false);
   const [modalText, setModalText] = React.useState('');
   const [todoId, setTodoId] = React.useState();
+
   
   
   const unCompletedTodos = todos.filter((todo) => todo.completed === false).length;

@@ -36,6 +36,7 @@ function AppUi({
   todoId,
   setTodoId,
   
+  
 }) {
   return (
     <>
@@ -57,7 +58,7 @@ function AppUi({
       {loading && new Array(4).fill().map((item, index) => <LoadingState key={index}/>)}
       {(!loading && !todos.length ) && <EmpyState />}
 
-      {todos.map((todo)=>(
+      {todos.map((todo,index)=>(
         <TodoItem
           key={todo.id}
           text={todo.text}
@@ -70,7 +71,9 @@ function AppUi({
           id={todo.id}
        
         />
+     
       ))}
+    
       
     </TodosList>
     
