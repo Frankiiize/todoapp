@@ -2,19 +2,23 @@ import React from "react";
 import sun from '../../images/icon-sun.svg';
 import moon from '../../images/icon-moon.svg';
 
-function Header () {
+function Header ({theme, setTheme}) {
   
-
+  
+  
   const themeChange = () => {
     let body = document.querySelector('body');
+    console.log(typeof theme)
     let themeIcon = document.querySelector('.themeIcon');
-    if(body.className === 'theme'){
-      body.className = 'theme theme--dark';
+    if(body.className === theme){
+      body.className = 'light light--dark';
       themeIcon.src= sun;
+      setTheme('dark')
       
     } else {
       themeIcon.src= moon;
-      body.className = 'theme'
+      body.className = 'light'
+      setTheme('light')
     }
   }
 

@@ -34,11 +34,19 @@ function App() {
   const [openModal, setOpenModal] = React.useState(false);
   const [modalText, setModalText] = React.useState('');
   const [todoId, setTodoId] = React.useState();
-
-  
+  const [theme, setTheme] = React.useState('light');
   
   const unCompletedTodos = todos.filter((todo) => todo.completed === false).length;
   const totalTodos = todos.length;
+
+  const handleDrag = (result) => {
+    if(!result.destination) return;
+    const newTodos = [...todos];
+    const [reorderedItem] = newTodos.splice(result.source.index, 1);
+    newTodos.splice(result.destination.index, 0, reorderedItem)
+    saveTodos(newTodos)
+
+  }
 
 
   const addTodo = (newTodoValue) => {
@@ -117,6 +125,9 @@ function App() {
     setModalText={setModalText}
     todoId={todoId}
     setTodoId={setTodoId}
+    handleDrag={handleDrag}
+    theme={theme}
+    setTheme={setTheme}
    />
 
   );

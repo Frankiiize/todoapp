@@ -1,11 +1,13 @@
 import React from "react";
+import { DragDropContext, Droppable, Draggable  } from 'react-beautiful-dnd';
 
 import { FaQuestionCircle } from 'react-icons/fa';
 
 import { Header  } from '../Header';
 import { NewTodo } from '../todoNew';
-import { TodosList } from '../TodoList';
-import { TodoItem } from '../TodoItem';
+//import { TodosList } from '../TodoList';
+//import { TodoItem } from '../TodoItem';
+import { TodoItem2 } from '../TodoItem2'
 import { FilterTodos } from '../FilterTodos';
 import { Footer } from '../Footer';
 import { Modal } from '../Modals';
@@ -35,13 +37,17 @@ function AppUi({
   setModalText,
   todoId,
   setTodoId,
-  
-  
+  handleDrag,
+  theme,
+  setTheme,
+
 }) {
+  
   return (
     <>
     <Header
-  
+    theme={theme}
+    setTheme={setTheme}
      />
 
     <NewTodo
@@ -50,32 +56,78 @@ function AppUi({
       addTodo={addTodo}
       openModal={openModal}
       setOpenModal={setOpenModal}
+  
     />
 
-    <TodosList>
-      {error && <ErrorState error={error}/>}
-     
-      {loading && new Array(4).fill().map((item, index) => <LoadingState key={index}/>)}
-      {(!loading && !todos.length ) && <EmpyState />}
 
-      {todos.map((todo,index)=>(
-        <TodoItem
-          key={todo.id}
-          text={todo.text}
-          completed={todo.completed}
-          onCompleteTodo={() => completeTodo(todo.id)}
-          onDelete= {() => deleteTodo(todo.text) }
-          setOpenModal={setOpenModal}
-          setModalText={setModalText}
-          setTodoId={setTodoId}
-          id={todo.id}
-       
-        />
-     
-      ))}
+    <section className="todoListContainer">
+      <DragDropContext onDragEnd={handleDrag}>
+          {error && <ErrorState error={error}/>}  
+          {loading && new Array(4).fill().map((item, index) => <LoadingState key={index}/>)}
+          {(!loading && !todos.length ) && <EmpyState />}
+            <Droppable droppableId='TODO_LIST1'>
+              {(provided, snapshot) => (
+                <ul {...provided.droppableProps} ref={provided.innerRef} 
+                className="todoListContainer__list">
+                  {todos.map((todo, index) => (
+                    <Draggable
+                    key={todo.id}
+                    draggableId={todo.id} 
+                    index={index}
+                    >
+                    {(provided, snapshot) => (
+                        <TodoItem2
+                        completeTodo={completeTodo}
+                        provided={provided}
+                        snapshot={snapshot}
+                        todoID={todo.id}
+                        completed={todo.completed}
+                        text={todo.text}
+                        setOpenModal={setOpenModal}
+                        setModalText={setModalText}
+                        setTodoId={setTodoId}
+                        theme={theme}
+                        setTheme={setTheme}
+                        />
+                    )}
+                    </Draggable>            
+                  ))}
+                  {provided.placeholder}
+                </ul>              
+              )}
+            </Droppable>
+
+      </DragDropContext>
+    </section>
+   
+
+
     
+      {/* <TodosList>
+        {error && <ErrorState error={error}/>}
       
-    </TodosList>
+        {loading && new Array(4).fill().map((item, index) => <LoadingState key={index}/>)}
+        {(!loading && !todos.length ) && <EmpyState />}
+
+         {todos.map((todo,index)=>(
+          <TodoItem
+            key={todo.id}
+            text={todo.text}
+            completed={todo.completed}
+            onCompleteTodo={() => completeTodo(todo.id)}
+            onDelete= {() => deleteTodo(todo.text) }
+            setOpenModal={setOpenModal}
+            setModalText={setModalText}
+            setTodoId={setTodoId}
+            id={todo.id}
+        
+          />
+      
+        ))} 
+      
+        
+      </TodosList> */}
+    
     
     <FilterTodos
       unCompletedTodos={unCompletedTodos}

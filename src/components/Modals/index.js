@@ -2,10 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 function Modal({children, setOpenModal}) {
-  const modal = document.getElementsByClassName('modalContainer');
  
-  
-
+ 
   return ReactDOM.createPortal(
     <div 
     onClick={
