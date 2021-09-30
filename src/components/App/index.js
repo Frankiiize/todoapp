@@ -35,6 +35,21 @@ function App() {
   const [modalText, setModalText] = React.useState('');
   const [todoId, setTodoId] = React.useState();
   const [theme, setTheme] = React.useState('light');
+
+  const saveTheme = (itemName, inicialValue) => {
+    localStorage.setItem(itemName, inicialValue)
+  }
+  React.useEffect(() => {
+    const body = document.querySelector('body');
+    const storagedTheme = localStorage.getItem('theme');
+    if(!storagedTheme){
+      saveTheme('theme',theme)
+    }else {
+      body.classList = storagedTheme ;
+    }
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
   
   const unCompletedTodos = todos.filter((todo) => todo.completed === false).length;
   const totalTodos = todos.length;
@@ -128,6 +143,7 @@ function App() {
     handleDrag={handleDrag}
     theme={theme}
     setTheme={setTheme}
+    saveTheme={saveTheme}
    />
 
   );

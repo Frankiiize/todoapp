@@ -40,7 +40,7 @@ function AppUi({
   handleDrag,
   theme,
   setTheme,
-
+  saveTheme,
 }) {
   
   return (
@@ -48,6 +48,7 @@ function AppUi({
     <Header
     theme={theme}
     setTheme={setTheme}
+    saveTheme={saveTheme}
      />
 
     <NewTodo
