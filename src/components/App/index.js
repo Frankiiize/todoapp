@@ -48,8 +48,8 @@ function App() {
       body.classList = storagedTheme ;
     }
     
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
+ 
+  },[theme])
   
   const unCompletedTodos = todos.filter((todo) => todo.completed === false).length;
   const totalTodos = todos.length;
