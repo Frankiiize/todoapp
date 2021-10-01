@@ -6,7 +6,7 @@ import { FaQuestionCircle } from 'react-icons/fa';
 import { Header  } from '../Header';
 import { NewTodo } from '../todoNew';
 //import { TodosList } from '../TodoList';
-//import { TodoItem } from '../TodoItem';
+import { TodoItem } from '../TodoItem';
 import { TodoItem2 } from '../TodoItem2'
 import { FilterTodos } from '../FilterTodos';
 import { Footer } from '../Footer';
@@ -103,8 +103,8 @@ function AppUi({
    
 
 
-    
-      {/* <TodosList>
+
+      {/* <>
         {error && <ErrorState error={error}/>}
       
         {loading && new Array(4).fill().map((item, index) => <LoadingState key={index}/>)}
@@ -125,9 +125,9 @@ function AppUi({
           />
       
         ))} 
-      
+      </> */}
         
-      </TodosList> */}
+    
     
     
     <FilterTodos

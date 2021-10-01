@@ -45,13 +45,16 @@ function TodoItem2 (
     >          
         <i           
         onClick = {() => completeTodo(todoID) }
-        className={`todoListContainer__list-icon ${(completed)&& 'checkedIcon'}`}>       
+        className={`todoListContainer__list-icon ${completed ? 'checkedIcon':'noicon'}`}>       
         </i>
         <div 
         onMouseEnter={() => {setHover(true)}} 
         onMouseLeave={() => {setHover(false)}}
         className="todoListContainer__list-text">
-          <p>{text}</p>
+          <p 
+          className={`${completed && 'todoListContainer__list-textCompleted'}`}>
+          {text}
+          </p>
           {(hover || isMobile) && <i onClick={toOpenModal}  className='closeIcon' ></i>}
         </div>
     </li>
