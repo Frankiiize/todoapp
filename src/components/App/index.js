@@ -36,7 +36,7 @@ function App() {
   const [todoId, setTodoId] = React.useState();
   const [theme, setTheme] = React.useState('light');
 
-  const saveTheme = (itemName, inicialValue) => {
+ /*  const saveTheme = (itemName, inicialValue) => {
     localStorage.setItem(itemName, inicialValue)
   }
   React.useEffect(() => {
@@ -49,7 +49,7 @@ function App() {
     }
     
  
-  },[theme])
+  },[theme]) */
   
   const unCompletedTodos = todos.filter((todo) => todo.completed === false).length;
   const totalTodos = todos.length;
@@ -143,7 +143,7 @@ function App() {
     handleDrag={handleDrag}
     theme={theme}
     setTheme={setTheme}
-    saveTheme={saveTheme}
+  
    />
 
   );
