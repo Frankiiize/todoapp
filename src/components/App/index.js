@@ -34,25 +34,22 @@ function App() {
   const [openModal, setOpenModal] = React.useState(false);
   const [modalText, setModalText] = React.useState('');
   const [todoId, setTodoId] = React.useState();
-  const [theme, setTheme] = React.useState('light');
+  const [theme, setTheme] = React.useState(true);
+  
 
- /*  const saveTheme = (itemName, inicialValue) => {
-    localStorage.setItem(itemName, inicialValue)
+  const [filterValue, setFiltervalue] = React.useState();
+  let searchedTodos = [];
+
+  if(!filterValue){
+    searchedTodos = todos;
+  } else {
+    searchedTodos = filterValue;
   }
-  React.useEffect(() => {
-    const body = document.querySelector('body');
-    const storagedTheme = localStorage.getItem('theme');
-    if(!storagedTheme){
-      saveTheme('theme',theme)
-    }else {
-      body.classList = storagedTheme ;
-    }
-    
- 
-  },[theme]) */
   
   const unCompletedTodos = todos.filter((todo) => todo.completed === false).length;
   const totalTodos = todos.length;
+
+  
 
   const handleDrag = (result) => {
     if(!result.destination) return;
@@ -62,8 +59,6 @@ function App() {
     saveTodos(newTodos)
 
   }
-
-
   const addTodo = (newTodoValue) => {
     const newTodos = [...todos];
     newTodos.unshift({
@@ -73,7 +68,6 @@ function App() {
     });
     saveTodos(newTodos);
   }
-  
 
   const completeTodo = (id) => {
     const newTodos = [...todos];
@@ -94,13 +88,21 @@ function App() {
     saveTodos(newTodos)
     setOpenModal(false)
   }
+
   const deleteClear = () => {
-    const newTodos = [...todos]
-    const elements  = newTodos.filter((todo) => todo.completed !== true);
-    saveTodos(elements)
+    const newTodos = [...storagedTodoParsed];
+    const condicion = newTodos.some((todo) => todo.completed === true );
+    if(!condicion){
+      return; 
+    } else{
+      const toSave = newTodos.filter((todo) => todo.completed !== true );
+      saveTodos(toSave)
+    }
   }
+
   const completeTodos = () => {
-    const newTodos = [...todos];
+    
+    const newTodos = [...searchedTodos];
     const evalCondition = newTodos.some((todo) => todo.completed === false);
     const elements = newTodos.filter((todo) => todo.completed === true); 
     (!evalCondition || elements.length === 0)
@@ -143,6 +145,10 @@ function App() {
     handleDrag={handleDrag}
     theme={theme}
     setTheme={setTheme}
+
+    filterValue={filterValue}
+    setFiltervalue={setFiltervalue}
+    searchedTodos={searchedTodos}
   
    />
 

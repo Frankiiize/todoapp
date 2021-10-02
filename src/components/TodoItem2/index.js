@@ -13,7 +13,6 @@ function TodoItem2 (
   setModalText,
   setTodoId,
   theme,
-  setTheme,
  }
 ){
   const [hover, setHover] = React.useState(false);
@@ -30,7 +29,7 @@ function TodoItem2 (
     ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}  
     style={{
         ...provided.draggableProps.style,
-        ...(snapshot.isDragging && theme === 'light' 
+        ...((snapshot.isDragging && theme  )
         ? { backgroundColor: 'hsl(233, 11%, 84%)',
             borderRadius: '5px'
           } 

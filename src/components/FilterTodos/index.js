@@ -1,6 +1,16 @@
 import React from "react";
 
-function FilterTodos ({unCompletedTodos, onClearComplete, onCompleteTodos, onActiveTodos,onAllTodos}) {
+function FilterTodos (
+  {
+    unCompletedTodos,
+    onAllTodos,
+    onActiveTodos,
+    onCompleteTodos,
+    onClearComplete,
+  }
+){
+
+    
 
     return (
     <>
