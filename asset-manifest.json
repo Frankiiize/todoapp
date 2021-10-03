@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/todoapp/static/css/main.a792188a.chunk.css",
+    "main.css": "/todoapp/static/css/main.5eed9628.chunk.css",
     "main.js": "/todoapp/static/js/main.c1e2146e.chunk.js",
     "main.js.map": "/todoapp/static/js/main.c1e2146e.chunk.js.map",
     "runtime-main.js": "/todoapp/static/js/runtime-main.f332c627.js",
@@ -8,7 +8,7 @@
     "static/js/2.445146ad.chunk.js": "/todoapp/static/js/2.445146ad.chunk.js",
     "static/js/2.445146ad.chunk.js.map": "/todoapp/static/js/2.445146ad.chunk.js.map",
     "index.html": "/todoapp/index.html",
-    "static/css/main.a792188a.chunk.css.map": "/todoapp/static/css/main.a792188a.chunk.css.map",
+    "static/css/main.5eed9628.chunk.css.map": "/todoapp/static/css/main.5eed9628.chunk.css.map",
     "static/js/2.445146ad.chunk.js.LICENSE.txt": "/todoapp/static/js/2.445146ad.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/todoapp/static/media/icon-cross.6ee81d30.svg",
     "static/media/icon-moon.6c03114b.svg": "/todoapp/static/media/icon-moon.6c03114b.svg",
@@ -17,7 +17,7 @@
   "entrypoints": [
     "static/js/runtime-main.f332c627.js",
     "static/js/2.445146ad.chunk.js",
-    "static/css/main.a792188a.chunk.css",
+    "static/css/main.5eed9628.chunk.css",
     "static/js/main.c1e2146e.chunk.js"
   ]
 }
