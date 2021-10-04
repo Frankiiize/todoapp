@@ -114,8 +114,7 @@ function AppUi({
                 <FaQuestionCircle />
               </div>
               <p>Seguro que quieres eliminar</p>
-              <p>{modalText}</p>
-              <p>TODO ID={todoId}</p>
+              <p>TODO:{modalText}</p>       
             </div>
             <div className="modalContainer__buttons">
               <button 
