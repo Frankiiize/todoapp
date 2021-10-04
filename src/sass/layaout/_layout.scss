@@ -206,7 +206,6 @@ body {
     }
     &__text:hover {
       cursor: pointer;
-
     }
     
 }
@@ -249,16 +248,18 @@ footer {
       font-size: 1.6rem;
       font-family: $ff-Primary;
       font-weight:700 ;
-      p{
+      &__text {
         color: var(--color-Txt_secondary);
         margin: 10px;
         font-size: 1.6rem;
         font-family: $ff-Primary;
         font-weight:700 ;
       }
-      p:hover{
+      &__text__active{
+        color: $BrightBlue;
+      }
+      &__text:hover {
         cursor: pointer;
-        color: var(--color-TxtHover_primary);
       }
     }
     span {
