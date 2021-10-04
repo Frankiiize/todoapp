@@ -10,7 +10,7 @@ function FilterTodos (
     device,
   }
 ){
-  const [allActive, setAllActive] = React.useState(false);
+  const [allActive, setAllActive] = React.useState(true);
   const [activeTodos, setActiveTodos] = React.useState(false);
   const [completeTodos, setCompleteTodos] = React.useState(false);
 
