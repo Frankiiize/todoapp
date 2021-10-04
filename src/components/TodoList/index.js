@@ -15,7 +15,8 @@ function TodoList (
     setModalText,
     setTodoId,
     theme,
-    setTheme
+    setTheme,
+    device
   }) {
   return(
     <section className="todoListContainer">
@@ -46,6 +47,7 @@ function TodoList (
                         setTodoId={setTodoId}
                         theme={theme}
                         setTheme={setTheme}
+                        device={device}
                         />
                     )}
                     </Draggable>            

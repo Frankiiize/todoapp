@@ -5,9 +5,10 @@ import moon from '../../images/icon-moon.svg';
 function Header (
   {
     theme,
-    setTheme
+    setTheme,
+   
   }) {
-    const storageTheme =  (savedTheme) => localStorage.setItem('theme',savedTheme);
+ 
     let body = document.querySelector('body');
    
     const toggleTheme = () => {
@@ -23,27 +24,6 @@ function Header (
       body.className = 'light'
     },[body])
   
-
-  
- /*  const storagedTheme = localStorage.getItem('theme');
-  
-  const themeChange = () => {
-    let body = document.querySelector('body');
-  debugger
-    let themeIcon = document.querySelector('.themeIcon');
-    if(body.className === theme){
-      body.className = 'light light--dark';
-      themeIcon.src= sun;
-      setTheme('light');
-      saveTheme('theme', 'light light--dark');
-      
-    } else {
-      themeIcon.src= moon;
-      body.className = 'light'
-      setTheme('dark');
-      saveTheme('theme', 'light');
-    }
-  } */
 
     return (
     <>

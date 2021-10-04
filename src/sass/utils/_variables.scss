@@ -37,6 +37,9 @@ $ff-Primary: 'Josefin Sans', sans-serif;
 /* --------------------backGround-------------------- */
 $ligth-Bg-image: '../../images/bg-mobile-light.jpg';
 $dark-Bg-image: '../../images/bg-mobile-dark.jpg';
+
+$lightDeskt-Bg-image: '../../images/bg-desktop-light.jpg';
+$darkDeskt-Bg-image: '../../images/bg-desktop-dark.jpg';
 /* --------------------//backGround-------------------- */
 .light {
   //ligth-THEME
@@ -47,6 +50,7 @@ $dark-Bg-image: '../../images/bg-mobile-dark.jpg';
   --color-TxtHover_primary: #{$VeryDarkBlue};
   --color-Border: #{$LightGrayishBlue};
   --bg-mobile-img: #{url($ligth-Bg-image)};
+  --bg-desktop-img: #{url($lightDeskt-Bg-image)};
   &--dark {
     //dark--THEME
     --color-bg_primary: #{$VeryDarkBlue};
@@ -55,6 +59,7 @@ $dark-Bg-image: '../../images/bg-mobile-dark.jpg';
     --color-TxtHover_primary: #{$LightGrayishBlueHover};
     --color-Border: #{$VeryDarkGrayishBlue};
     --bg-mobile-img: #{url($dark-Bg-image)};
+    --bg-desktop-img: #{url($darkDeskt-Bg-image)};
     
   }
 }

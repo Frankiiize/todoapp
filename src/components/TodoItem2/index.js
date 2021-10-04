@@ -13,6 +13,7 @@ function TodoItem2 (
   setModalText,
   setTodoId,
   theme,
+  device,
  }
 ){
   const [hover, setHover] = React.useState(false);
@@ -23,7 +24,8 @@ function TodoItem2 (
     setTodoId(todoID)
 
   }
-  const isMobile = window.innerWidth <= 768 ? true : false;
+ 
+ 
   return (
     <li
     ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}  
@@ -34,7 +36,7 @@ function TodoItem2 (
             borderRadius: '5px'
           } 
         : { }),
-        ...(snapshot.isDragging && theme === 'dark' 
+        ...(snapshot.isDragging && !theme 
         ? { backgroundColor: 'hsl(237, 14%, 26%)',
             borderRadius: '5px'
           } 
@@ -54,7 +56,7 @@ function TodoItem2 (
           className={`${completed && 'todoListContainer__list-textCompleted'}`}>
           {text}
           </p>
-          {(hover || isMobile) && <i onClick={toOpenModal}  className='closeIcon' ></i>}
+          {(hover || device) && <i onClick={toOpenModal}  className='closeIcon' ></i>}
         </div>
     </li>
   );

@@ -35,9 +35,18 @@ function App() {
   const [modalText, setModalText] = React.useState('');
   const [todoId, setTodoId] = React.useState();
   const [theme, setTheme] = React.useState(true);
+  const [device, setDevice] = React.useState();
+  
   
 
   const [filterValue, setFiltervalue] = React.useState();
+
+  React.useEffect(() => {
+
+    const isMobile = window.innerWidth <= 768 ? true : false;
+    setDevice(isMobile)
+  },[device]);
+  
   let searchedTodos = [];
 
   if(!filterValue){
@@ -107,7 +116,8 @@ function App() {
     const elements = newTodos.filter((todo) => todo.completed === true); 
     (!evalCondition || elements.length === 0)
       ?setTodos(storagedTodoParsed)
-      :setTodos(elements)
+      :setTodos(elements);
+ 
   }
   const activeTodos = () => {
     const newTodos = [...todos];
@@ -115,10 +125,12 @@ function App() {
     const elements = newTodos.filter((todo) => todo.completed === false);
     (!evalCondition || elements.length === 0)
       ? setTodos(storagedTodoParsed)
-      : setTodos(elements)
+      : setTodos(elements);
+   
   }
   const allTodos = () => {
     setTodos(storagedTodoParsed)
+   
   }
   return (
    <AppUi 
@@ -149,6 +161,8 @@ function App() {
     filterValue={filterValue}
     setFiltervalue={setFiltervalue}
     searchedTodos={searchedTodos}
+    device={device}
+  
   
    />
 

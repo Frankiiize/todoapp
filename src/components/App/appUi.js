@@ -41,7 +41,9 @@ function AppUi({
   saveTheme,
   filterValue,
   setFiltervalue,
-  searchedTodos
+  searchedTodos,
+  device,
+  
 }) {
   
   return (
@@ -50,6 +52,7 @@ function AppUi({
     theme={theme}
     setTheme={setTheme}
     saveTheme={saveTheme}
+   
      />
 
     <NewTodo
@@ -74,6 +77,8 @@ function AppUi({
       theme={theme}
       setOpenModal={setOpenModal}
       setTheme={setTheme}
+      device={device}
+      
     />
   
     
@@ -87,6 +92,8 @@ function AppUi({
       todos={todos}
       filterValue={filterValue}
       setFiltervalue={setFiltervalue}
+      device={device}
+     
      />
 
     <Footer /> 
