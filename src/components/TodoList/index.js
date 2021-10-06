@@ -20,15 +20,17 @@ function TodoList (
   }) {
   return(
     <section className="todoListContainer">
-      <DragDropContext onDragEnd={handleDrag}>
           {error && <ErrorState error={error}/>}  
-          {loading && new Array(4).fill().map((item, index) => <LoadingState key={index}/>)}
+          {loading && new Array(1).fill().map((item, index) => <LoadingState key={index}/>)}
           {(!loading && !todos.length ) && <EmpyState />}
+      <DragDropContext onDragEnd={handleDrag}>
+            
             <Droppable droppableId='TODO_LIST1'>
               {(provided, snapshot) => (
                 <ul {...provided.droppableProps} ref={provided.innerRef} 
                 className="todoListContainer__list">
                   {searchedTodos.map((todo, index) => (
+                   
                     <Draggable
                     key={todo.id}
                     draggableId={todo.id} 
