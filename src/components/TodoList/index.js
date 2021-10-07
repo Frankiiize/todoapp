@@ -23,6 +23,7 @@ function TodoList (
           {error && <ErrorState error={error}/>}  
           {loading && new Array(1).fill().map((item, index) => <LoadingState key={index}/>)}
           {(!loading && !todos.length ) && <EmpyState />}
+          
       <DragDropContext onDragEnd={handleDrag}>
             
             <Droppable droppableId='TODO_LIST1'>

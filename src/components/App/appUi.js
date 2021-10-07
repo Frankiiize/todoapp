@@ -38,7 +38,7 @@ function AppUi({
   handleDrag,
   theme,
   setTheme,
-  saveTheme,
+  
   filterValue,
   setFiltervalue,
   searchedTodos,
@@ -51,8 +51,6 @@ function AppUi({
     <Header
     theme={theme}
     setTheme={setTheme}
-    saveTheme={saveTheme}
-   
      />
 
     <NewTodo
