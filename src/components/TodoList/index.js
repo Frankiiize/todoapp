@@ -5,7 +5,7 @@ import { ErrorState, LoadingState, EmpyState} from '../SkeletonLoading'
 
 function TodoList (
   {
-    handleDrag,
+    saveTodos,
     error,
     loading,
     todos,
@@ -18,14 +18,24 @@ function TodoList (
     setTheme,
     device
   }) {
+    
+  const handleDrag = (result) => {
+    if(!result.destination) return;
+    const newTodos = [...todos];
+    const [reorderedItem] = newTodos.splice(result.source.index, 1);
+    newTodos.splice(result.destination.index, 0, reorderedItem)
+    saveTodos(newTodos)
+
+  }
+    
   return(
     <section className="todoListContainer">
           {error && <ErrorState error={error}/>}  
-          {loading && new Array(1).fill().map((item, index) => <LoadingState key={index}/>)}
+          {loading &&  <LoadingState />}
           {(!loading && !todos.length ) && <EmpyState />}
-          
-      <DragDropContext onDragEnd={handleDrag}>
-            
+
+
+      <DragDropContext onDragEnd={handleDrag}>         
             <Droppable droppableId='TODO_LIST1'>
               {(provided, snapshot) => (
                 <ul {...provided.droppableProps} ref={provided.innerRef} 

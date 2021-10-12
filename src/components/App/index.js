@@ -60,14 +60,6 @@ function App() {
 
   
 
-  const handleDrag = (result) => {
-    if(!result.destination) return;
-    const newTodos = [...todos];
-    const [reorderedItem] = newTodos.splice(result.source.index, 1);
-    newTodos.splice(result.destination.index, 0, reorderedItem)
-    saveTodos(newTodos)
-
-  }
   const addTodo = (newTodoValue) => {
     const newTodos = [...todos];
     newTodos.unshift({
@@ -101,7 +93,7 @@ function App() {
   const deleteClear = () => {
     const newTodos = [...storagedTodoParsed];
     const condicion = newTodos.some((todo) => todo.completed === true );
-    if(!condicion){
+    if(!condicion || !!loading){
       return; 
     } else{
       const toSave = newTodos.filter((todo) => todo.completed !== true );
@@ -114,7 +106,7 @@ function App() {
     const newTodos = [...searchedTodos];
     const evalCondition = newTodos.some((todo) => todo.completed === false);
     const elements = newTodos.filter((todo) => todo.completed === true); 
-    (!evalCondition || elements.length === 0)
+    (!evalCondition || elements.length === 0) 
       ?setTodos(storagedTodoParsed)
       :setTodos(elements);
  
@@ -123,7 +115,7 @@ function App() {
     const newTodos = [...todos];
     const evalCondition = newTodos.some((todo) => todo.completed === true);
     const elements = newTodos.filter((todo) => todo.completed === false);
-    (!evalCondition || elements.length === 0)
+    (!evalCondition || elements.length === 0 )
       ? setTodos(storagedTodoParsed)
       : setTodos(elements);
    
@@ -154,7 +146,8 @@ function App() {
     setModalText={setModalText}
     todoId={todoId}
     setTodoId={setTodoId}
-    handleDrag={handleDrag}
+    saveTodos={saveTodos}
+
     theme={theme}
     setTheme={setTheme}
 

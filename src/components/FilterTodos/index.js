@@ -8,6 +8,7 @@ function FilterTodos (
     onCompleteTodos,
     onClearComplete,
     device,
+    loading,
   }
 ){
   const [allActive, setAllActive] = React.useState(true);
@@ -39,7 +40,7 @@ function FilterTodos (
     <>
       {device 
       ?<>
-        <div className="todoCounter"> 
+        <div className={`todoCounter ${!!loading && "todoCounter--loading"}`}> 
           <span>{unCompletedTodos} Items left </span>
           <span className="todoCounter__clearComplete" onClick={onClearComplete}>Clear Completed</span>       
         </div>
@@ -50,7 +51,7 @@ function FilterTodos (
         </section>
         </>
         :<>
-        <div className="todoCounter"> 
+        <div className={`todoCounter ${!!loading && "todoCounter--loading"}`}> 
           <span>{unCompletedTodos} Items left </span>
           <div className="todoCounter__filter">
           <p onClick={clickAllTodos} className={`filterContainer__text ${allActive && 'filterContainer__text__active'}`}>All</p>

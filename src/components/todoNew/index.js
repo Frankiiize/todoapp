@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function NewTodo ({newTodoValue, setNewTodoValue, addTodo}) {
+function NewTodo ({newTodoValue, setNewTodoValue, addTodo, loading}) {
   const [hover, setHover] = React.useState(false);
   const [click, setClick] = React.useState(false);
   
@@ -30,6 +30,7 @@ function NewTodo ({newTodoValue, setNewTodoValue, addTodo}) {
           onMouseLeave={() => {setHover(false)}}
           type="submit" 
           value="" 
+          disabled={loading}
           />
           
           <input
@@ -38,6 +39,7 @@ function NewTodo ({newTodoValue, setNewTodoValue, addTodo}) {
           value={newTodoValue}
           placeholder="Create a new TODO" 
           className="newTodoContainer__input"
+          disabled={loading}
           />
           
         </label>

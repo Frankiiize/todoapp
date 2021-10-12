@@ -24,24 +24,25 @@ function TodoItem2 (
     setTodoId(todoID)
 
   }
+  const themeStyle= {
+    ...provided.draggableProps.style,
+    ...((snapshot.isDragging && theme  )
+    ? { backgroundColor: 'hsl(233, 11%, 84%)',
+        borderRadius: '5px'
+      } 
+    : { }),
+    ...(snapshot.isDragging && !theme 
+    ? { backgroundColor: 'hsl(237, 14%, 26%)',
+        borderRadius: '5px'
+      } 
+    : { })
+  }
  
  
   return (
     <li
     ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}  
-    style={{
-        ...provided.draggableProps.style,
-        ...((snapshot.isDragging && theme  )
-        ? { backgroundColor: 'hsl(233, 11%, 84%)',
-            borderRadius: '5px'
-          } 
-        : { }),
-        ...(snapshot.isDragging && !theme 
-        ? { backgroundColor: 'hsl(237, 14%, 26%)',
-            borderRadius: '5px'
-          } 
-        : { })
-      }}           
+    style={themeStyle}           
     className="todoListContainer__list-items"      
     >          
         <i           

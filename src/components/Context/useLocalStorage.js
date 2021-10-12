@@ -6,6 +6,7 @@ function useLocalStorage (itemName, inicialValue) {
   const [item, setItem] = React.useState(inicialValue);
   let storagedTodoParsed = JSON.parse(localStorage.getItem('TODOS_V1'));
   React.useEffect(() => {
+    
     setTimeout(() => {
       try {
         const localStorageItem = localStorage.getItem(itemName);
