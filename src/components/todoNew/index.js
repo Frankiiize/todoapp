@@ -37,7 +37,7 @@ function NewTodo ({newTodoValue, setNewTodoValue, addTodo, loading}) {
           type="text"
           onChange={newTodoInputValue}
           value={newTodoValue}
-          placeholder="Create a new TODO" 
+          placeholder="create a new To-Do "
           className="newTodoContainer__input"
           disabled={loading}
           />

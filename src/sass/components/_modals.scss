@@ -19,7 +19,7 @@
     justify-content: space-around;
     min-height: 200px;
     border-radius: 5px;
-    background-color: $LightGrayishBlueHover;
+    background-color: $VeryLightGray;
     box-shadow: 0 0 11px 0 $VeryDarkDesaturatedBlue;
   }
   &__text{
@@ -61,7 +61,7 @@
     width: 100px;
     height: 40px;
     border-radius: 5px;
-    color: $LightGrayishBlue;
+    color: $VeryLightGray;
     border: none;
   }
   button:hover{
