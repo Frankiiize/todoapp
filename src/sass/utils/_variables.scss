@@ -53,8 +53,8 @@ $darkDeskt-Bg-image: '../../images/bg-desktop-dark.jpg';
   --bg-desktop-img: #{url($lightDeskt-Bg-image)};
   &--dark {
     //dark--THEME
-    --color-bg_primary: #{$VeryDarkBlue};
-    --color-bg_segundary: #{$VeryDarkDesaturatedBlue};
+    --color-bg_primary: #{$VeryDarkDesaturatedBlue};
+    --color-bg_segundary: #{$VeryDarkBlue};
     --color-Txt_primary: #{$LightGrayishBlue};
     --color-TxtHover_primary: #{$LightGrayishBlueHover};
     --color-Border: #{$VeryDarkGrayishBlue};

@@ -23,7 +23,11 @@ function HeaderItem ({theme, setTheme}){
   return (
     <>
       <h1>TODO</h1>
-      <img className="themeIcon" onClick={toggleTheme} src={ (theme) ? moon : sun } alt="togle theme" />
+
+  
+        <img className="themeIcon" onClick={toggleTheme} src={ (theme) ? moon : sun } alt="togle theme" />
+
+
     </>
 
   );

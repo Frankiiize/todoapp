@@ -14,6 +14,7 @@ import { Modal } from '../Modals';
 
 import { TodoList } from "../TodoList";
 import { HeaderItem } from "../Header/HeaderItems";
+import { MainContainer } from "../main";
 
 
 function AppUi({
@@ -50,6 +51,9 @@ function AppUi({
   
   return (
     <>
+   
+
+    
     <Header
      >
       <HeaderItem
@@ -58,53 +62,46 @@ function AppUi({
       />
      </Header>
 
-    <NewTodo
-      newTodoValue={newTodoValue}
-      setNewTodoValue={setNewTodoValue}
-      addTodo={addTodo}
-      openModal={openModal}
-      setOpenModal={setOpenModal}
-      loading={loading}
-    />
+     <MainContainer>
+      <NewTodo
+        newTodoValue={newTodoValue}
+        setNewTodoValue={setNewTodoValue}
+        addTodo={addTodo}
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        loading={loading}
+      />
 
+      <TodoList
+        saveTodos={saveTodos}
+        error={error}
+        loading={loading}
+        todos={todos}
+        searchedTodos={searchedTodos}
+        completeTodo={completeTodo}
+        setModalText={setModalText}
+        setTodoId={setTodoId}
+        theme={theme}
+        setOpenModal={setOpenModal}
+        setTheme={setTheme}
+        device={device}
+        
+      />
 
-    <TodoList
-      saveTodos={saveTodos}
-      error={error}
-      loading={loading}
-      todos={todos}
-      searchedTodos={searchedTodos}
-      completeTodo={completeTodo}
-      setModalText={setModalText}
-      setTodoId={setTodoId}
-      theme={theme}
-      setOpenModal={setOpenModal}
-      setTheme={setTheme}
-      device={device}
-      
-    />
-
-  
-  
+      <FilterTodos
+        unCompletedTodos={unCompletedTodos}
+        onClearComplete={deleteClear}
+        onCompleteTodos={completeTodos}
+        onActiveTodos={activeTodos}
+        onAllTodos={allTodos}
+        todos={todos}
+        filterValue={filterValue}
+        setFiltervalue={setFiltervalue}
+        loading={loading}
+      />
+      <Footer /> 
     
-    <FilterTodos
-      unCompletedTodos={unCompletedTodos}
-      onClearComplete={deleteClear}
-      onCompleteTodos={completeTodos}
-      onActiveTodos={activeTodos}
-      onAllTodos={allTodos}
-
-      todos={todos}
-      filterValue={filterValue}
-      setFiltervalue={setFiltervalue}
-      device={device}
-      loading={loading}
-     
-     />
-
-    <Footer /> 
-    
-  
+    </MainContainer>
 
     {!!openModal && (
     
@@ -121,7 +118,7 @@ function AppUi({
       </Modal>
 
     )}
-  
+    
   </>
   );
 }

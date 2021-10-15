@@ -1,5 +1,6 @@
 import React from "react";
 
+
 function ErrorState ({error}) {
   return (
     <div className="skeletonContainer">
@@ -19,11 +20,13 @@ function LoadingState () {
   );
 }
 
+
+
 function EmpyState () {
   return (
     <div className="skeletonContainer">
       <div className="skeletonContainer__empyState">
-        <p>Crea tu primer TODO</p>
+        <p><span>create</span> your first <span>to-do</span></p>
       </div>
     </div>
   );
