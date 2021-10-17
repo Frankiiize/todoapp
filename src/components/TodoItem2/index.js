@@ -45,10 +45,16 @@ function TodoItem2 (
     style={themeStyle}           
     className="todoListContainer__list-items"      
     >          
-        <i           
-        onClick = {() => completeTodo(todoID) }
-        className={`todoListContainer__list-icon ${completed ? 'checkedIcon':'noicon'}`}>       
-        </i>
+        <label>
+          <input 
+          onClick = {() => {completeTodo(todoID)}}
+          type="radio"/>
+          <i                
+          className={`todoListContainer__list-icon ${completed ? 'checkedIcon todoListContainer__list-iconCheckAnimation':'noicon'}`}>       
+          </i>
+        </label>
+
+        
         <div 
         onMouseEnter={() => {setHover(true)}} 
         onMouseLeave={() => {setHover(false)}}

@@ -2,7 +2,7 @@ body {
     min-height: 100vh;
     background-image: var(--bg-mobile-img);
     background-repeat: no-repeat;
-    background-size: 100% 25%;
+    background-size: contain;
     background-position: top;
     background-color: var(--color-bg_segundary);
 }
@@ -85,7 +85,6 @@ input:disabled {
    
     &__list {
         width: 100%;
-       // min-height: 250px;
         position: relative;   
         &-items {
             width: 100%;
@@ -93,11 +92,25 @@ input:disabled {
             list-style: none;
             display: flex;
             align-items: center;
-            justify-content: flex-end;          
+            justify-content: space-around;          
             border-bottom: 1px solid var(--color-Border);
             cursor: pointer !important;
+            position: relative;
+            label {
+              display: flex;
+              padding: 15px;        
+            }
+            input[type=radio]{
+              width: 24px;
+              height: 24px;
+              position: absolute;
+              opacity: 0;
+              
+            }
           }
-          &-icon{               
+          &-icon{    
+            
+                 
             width: 24px;
             height: 24px;
             position: relative;
@@ -105,6 +118,13 @@ input:disabled {
             border-radius: 50%;
             z-index: 0;       
         }
+        &-iconCheckAnimation{
+            animation: checkedAnimation;
+            animation-duration: 300ms;
+            animation-iteration-count: 1;
+            
+        }
+      
         
         &-icon:hover::before {
             cursor: pointer;
@@ -154,8 +174,9 @@ input:disabled {
             }
         }
         &-textCompleted {
-            text-decoration: line-through; 
-            color: var(--color-Txt_secondary);       
+          transition: 500ms;
+          text-decoration: line-through; 
+          color: var(--color-Txt_secondary);       
         }
       
     }
@@ -285,6 +306,17 @@ footer {
     text-align: center;
     
 }
+
+@keyframes checkedAnimation{
+  0%{
+      transform: scale(1.2);
+  }
+ 
+  100%{
+      transform: scale(1);
+  }
+}
+
 
 @media (min-width: 768px) {
   body{
