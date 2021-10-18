@@ -5,6 +5,7 @@ body {
     background-size: contain;
     background-position: top;
     background-color: var(--color-bg_segundary);
+    transition: 400ms;
 }
 input:disabled {
   opacity: 30%;
@@ -305,16 +306,6 @@ footer {
     font-family: $ff-Primary;
     text-align: center;
     
-}
-
-@keyframes checkedAnimation{
-  0%{
-      transform: scale(1.2);
-  }
- 
-  100%{
-      transform: scale(1);
-  }
 }
 
 
