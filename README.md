@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+<!-- PROJECT LOGO -->
+<!-- <br />
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h3 align="center">Best-README-Template</h3>
 
-## Available Scripts
+  <p align="center">
+    An awesome README template to jumpstart your projects!
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+  </p>
+</div> -->
 
-In the project directory, you can run:
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<!-- TABLE OF CONTENTS -->
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <!-- <li><a href="#contributing">Contributing</a></li> -->
+    <li><a href="#contact">Contact</a></li>
+<!--     <li><a href="#acknowledgments">Acknowledgments</a></li> -->
+  </ol>
+</details>
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+this is a solution to "Todo app" on Frontend Mentor. Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<a href="https://ibb.co/BfFrqwM"><img src="https://i.ibb.co/RgdBz7w/screencapture-frankiiize-github-io-todoapp-2022-10-11-18-53-51.png" alt="screencapture-frankiiize-github-io-todoapp-2022-10-11-18-53-51" border="0"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### Built With
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* [React.js](https://reactjs.org/)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- GETTING STARTED -->
+## Getting Started
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Prerequisites
 
-### Code Splitting
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Installation
 
-### Analyzing the Bundle Size
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Frankiiize/todoapp.git
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### Making a Progressive Web App
+<!-- USAGE EXAMPLES -->
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. You can create TODOS's 
+2. it will saved on the localstorage 
+3. can check done TODOS's 
+4. filter actives and completed TODO's 
+5. can clear all completed todos
 
-### Advanced Configuration
+<!-- CONTACT -->
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Francisco Jimenez - frankiiize@gmail.com
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="right">(<a href="#top">back to top</a>)</p>
