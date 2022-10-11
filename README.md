@@ -56,7 +56,7 @@
 this is a solution to "Todo app" on Frontend Mentor. Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW
 
-<a href="https://ibb.co/BfFrqwM"><img src="https://i.ibb.co/RgdBz7w/screencapture-frankiiize-github-io-todoapp-2022-10-11-18-53-51.png" alt="screencapture-frankiiize-github-io-todoapp-2022-10-11-18-53-51" border="0"></a>
+<a href="https://ibb.co/BfFrqwM"><img src="https://i.ibb.co/WHjPgsJ/screencapture-frankiiize-github-io-todoapp-2022-10-11-18-53-51.png" alt="screencapture-frankiiize-github-io-todoapp-2022-10-11-18-53-51" border="0"></a>
 
 
 ### Built With
